@@ -11,7 +11,10 @@ echo "=== Building PersonalEngine ($BUILD_TYPE) ==="
 mkdir -p $BUILD_DIR
 
 # Run CMake configuration step
-cmake -S . -B $BUILD_DIR -DCMAKE_BUILD_TYPE=$BUILD_TYPE
+cmake -S . -B $BUILD_DIR \
+    -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
+    -DCMAKE_TOOLCHAIN_FILE="C:/vcpkg/scripts/buildsystems/vcpkg.cmake" \
+    -DVCPKG_TARGET_TRIPLET=x64-windows
 
 # Build
 cmake --build $BUILD_DIR --config $BUILD_TYPE
